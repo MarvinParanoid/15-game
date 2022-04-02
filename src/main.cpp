@@ -5,7 +5,7 @@
 
 int main()
 {
-	AssetsManager::Instance().Load();
+	AssetsManager::Instance().LoadFont("MainFont", "resources/RobotoMono-Regular.ttf");
 	GameModel game;
 	GameRender render(game);
 	GameController controller(game, render);

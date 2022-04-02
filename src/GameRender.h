@@ -8,6 +8,7 @@ class GameRender: public sf::Drawable, public sf::Transformable
 {
 	GameModel &myGame;
 	sf::RenderWindow myWindow;
+	sf::Font myFont;
 	sf::Text myText;
 public:
 	explicit GameRender(GameModel &game);

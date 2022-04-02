@@ -4,6 +4,7 @@
 GameRender::GameRender(GameModel &game)
 	: myGame(game)
 {
+	myFont = AssetsManager::Instance().GetFont("MainFont");
 	Init();
 }
 
@@ -12,7 +13,7 @@ bool GameRender::Init()
 	setPosition(50.f, 50.f);
 	myWindow.create(sf::VideoMode(600, 600), "15");
 	myWindow.setFramerateLimit(60);
-	myText = sf::Text("F2 - New Game / Esc - Exit / Arrow Keys - Move Tile", AssetsManager::Instance().font, 18);
+	myText = sf::Text("F2 - New Game / Esc - Exit / Arrow Keys - Move Tile", myFont, 18);
 	myText.setFillColor(sf::Color::Cyan);
 	myText.setPosition(5.f, 5.f);
 	return true;
@@ -42,7 +43,7 @@ void GameRender::draw(sf::RenderTarget &target, sf::RenderStates states) const
 	shape.setOutlineColor(color);
 	shape.setFillColor(sf::Color::Transparent);
 
-	sf::Text text("", AssetsManager::Instance().font, 52);
+	sf::Text text("", myFont, 52);
 
 	auto &elements = myGame.Elements();
 	for (uint32_t i = 0; i < GameModel::ARRAY_SIZE; i++) {

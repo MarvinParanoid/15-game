@@ -1,8 +1,17 @@
 #include "AssetsManager.h"
 
-void AssetsManager::Load()
+void AssetsManager::LoadFont(const std::string &name, const std::string &filename)
 {
-	if (!font.loadFromFile("resources/RobotoMono-Regular.ttf")) {
+	sf::Font font;
+	if (font.loadFromFile(filename)) {
+		_fonts.emplace(name, font);
+	}
+	else {
 		throw;
 	}
+}
+
+sf::Font &AssetsManager::GetFont(const std::string &name)
+{
+	return _fonts.at(name);
 }
