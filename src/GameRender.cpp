@@ -56,7 +56,9 @@ void GameRender::draw(sf::RenderTarget &target, sf::RenderStates states) const {
         if (elements[i] > 0) {
             sf::Vector2f position(i % GameModel::SIZE * GameModel::CELL_SIZE + 10.f, i / GameModel::SIZE * GameModel::CELL_SIZE + 10.f);
             shape.setPosition(position);
-            text.setPosition(position.x + 30.f + (elements[i] < 10 ? 15.f : 0.f), position.y + 25.f);
+            sf::FloatRect textRect = text.getLocalBounds();
+            text.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
+            text.setPosition(position.x + GameModel::HALF_CELL_SIZE, position.y + GameModel::HALF_CELL_SIZE);
             target.draw(shape, states);
             target.draw(text, states);
         }

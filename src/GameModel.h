@@ -10,6 +10,7 @@ class GameModel {
     static constexpr uint32_t ARRAY_SIZE = SIZE * SIZE;
     static constexpr uint32_t FIELD_SIZE = 500;
     static constexpr uint32_t CELL_SIZE = 120;
+    static constexpr uint32_t HALF_CELL_SIZE = 60;
     enum class Direction { Left, Right, Up, Down };
 
   protected:
