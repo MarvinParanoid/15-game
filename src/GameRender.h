@@ -1,26 +1,23 @@
 #ifndef GAMERENDER_H
 #define GAMERENDER_H
 
-#include <SFML/Graphics.hpp>
 #include "GameModel.h"
+#include <SFML/Graphics.hpp>
 
-class GameRender: public sf::Drawable, public sf::Transformable
-{
-	GameModel &myGame;
-	sf::RenderWindow myWindow;
-	sf::Font myFont;
-	sf::Text myText;
-public:
-	explicit GameRender(GameModel &game);
-	sf::RenderWindow &window()
-	{
-		return myWindow;
-	};
-	bool Init();
-	void Render();
-public:
-	void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
+class GameRender : public sf::Drawable, public sf::Transformable {
+    GameModel &myGame;
+    sf::RenderWindow myWindow;
+    sf::Font myFont;
+    sf::Text myText;
+
+  public:
+    explicit GameRender(GameModel &game);
+    sf::RenderWindow &window() { return myWindow; };
+    bool Init();
+    void Render();
+
+  public:
+    void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 };
 
-
-#endif //GAMERENDER_H
+#endif // GAMERENDER_H
