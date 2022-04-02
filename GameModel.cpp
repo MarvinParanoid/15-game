@@ -2,6 +2,7 @@
 #include <algorithm>
 
 GameModel::GameModel()
+	: myElements(ARRAY_SIZE, 0)
 {
 	Init();
 }

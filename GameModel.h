@@ -2,6 +2,7 @@
 #define GAMEMODEL_H
 
 #include <cstdint>
+#include <vector>
 
 class GameModel
 {
@@ -15,7 +16,7 @@ public:
 		Left, Right, Up, Down
 	};
 protected:
-	int32_t myElements[ARRAY_SIZE];
+	std::vector<uint32_t> myElements;
 	int32_t myEmptyIndex;
 	bool myIsSolved;
 public:
@@ -24,7 +25,7 @@ public:
 	bool Check();
 	void Move(Direction direction);
 	void Reset();
-	int32_t *Elements()
+	const std::vector<uint32_t> &Elements() const
 	{
 		return myElements;
 	}

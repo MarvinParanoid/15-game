@@ -44,8 +44,8 @@ void GameRender::draw(sf::RenderTarget &target, sf::RenderStates states) const
 
 	sf::Text text("", Assets::Instance().font, 52);
 
-	int *elements = myGame.Elements();
-	for (unsigned int i = 0; i < GameModel::ARRAY_SIZE; i++) {
+	auto &elements = myGame.Elements();
+	for (uint32_t i = 0; i < GameModel::ARRAY_SIZE; i++) {
 		shape.setOutlineColor(color);
 		text.setFillColor(color);
 		text.setString(std::to_string(elements[i]));
