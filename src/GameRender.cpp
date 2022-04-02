@@ -1,5 +1,5 @@
 #include "GameRender.h"
-#include "Assets.h"
+#include "AssetsManager.h"
 
 GameRender::GameRender(GameModel &game)
 	: myGame(game)
@@ -12,7 +12,7 @@ bool GameRender::Init()
 	setPosition(50.f, 50.f);
 	myWindow.create(sf::VideoMode(600, 600), "15");
 	myWindow.setFramerateLimit(60);
-	myText = sf::Text("F2 - New Game / Esc - Exit / Arrow Keys - Move Tile", Assets::Instance().font, 18);
+	myText = sf::Text("F2 - New Game / Esc - Exit / Arrow Keys - Move Tile", AssetsManager::Instance().font, 18);
 	myText.setFillColor(sf::Color::Cyan);
 	myText.setPosition(5.f, 5.f);
 	return true;
@@ -42,7 +42,7 @@ void GameRender::draw(sf::RenderTarget &target, sf::RenderStates states) const
 	shape.setOutlineColor(color);
 	shape.setFillColor(sf::Color::Transparent);
 
-	sf::Text text("", Assets::Instance().font, 52);
+	sf::Text text("", AssetsManager::Instance().font, 52);
 
 	auto &elements = myGame.Elements();
 	for (uint32_t i = 0; i < GameModel::ARRAY_SIZE; i++) {

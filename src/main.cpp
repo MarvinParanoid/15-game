@@ -1,11 +1,11 @@
-#include "Assets.h"
+#include "AssetsManager.h"
 #include "GameModel.h"
 #include "GameRender.h"
 #include "GameController.h"
 
 int main()
 {
-	Assets::Instance().Load();
+	AssetsManager::Instance().Load();
 	GameModel game;
 	GameRender render(game);
 	GameController controller(game, render);

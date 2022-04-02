@@ -1,6 +1,6 @@
-#include "Assets.h"
+#include "AssetsManager.h"
 
-void Assets::Load()
+void AssetsManager::Load()
 {
 	if (!font.loadFromFile("resources/RobotoMono-Regular.ttf")) {
 		throw;
