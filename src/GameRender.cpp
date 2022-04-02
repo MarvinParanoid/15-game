@@ -12,7 +12,7 @@ bool GameRender::Init()
 	setPosition(50.f, 50.f);
 	myWindow.create(sf::VideoMode(600, 600), "15");
 	myWindow.setFramerateLimit(60);
-	myText = sf::Text("F2 - New Game / Esc - Exit / Arrow Keys - Move Tile", Assets::Instance().font, 20);
+	myText = sf::Text("F2 - New Game / Esc - Exit / Arrow Keys - Move Tile", Assets::Instance().font, 18);
 	myText.setFillColor(sf::Color::Cyan);
 	myText.setPosition(5.f, 5.f);
 	return true;

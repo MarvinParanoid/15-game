@@ -2,7 +2,7 @@
 
 void Assets::Load()
 {
-	if (!font.loadFromFile("resources/OpenSans-Regular.ttf")) {
+	if (!font.loadFromFile("resources/RobotoMono-Regular.ttf")) {
 		throw;
 	}
 }
