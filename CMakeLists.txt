@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
 
-add_executable(15 main.cpp Game.cpp Game.h)
+add_executable(15 main.cpp Assets.cpp Assets.h GameModel.cpp GameModel.h GameRender.cpp GameRender.h GameController.cpp GameController.h)
 
 target_link_libraries(15 sfml-graphics)
 
