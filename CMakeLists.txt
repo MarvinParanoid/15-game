@@ -4,12 +4,13 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(SFML 2.5 COMPONENTS graphics REQUIRED)
 
-add_executable(15 main.cpp Assets.cpp Assets.h GameModel.cpp GameModel.h GameRender.cpp GameRender.h GameController.cpp GameController.h)
+file(GLOB SOURCES "src/*.cpp")
+add_executable(15 ${SOURCES})
 
 target_link_libraries(15 sfml-graphics)
 
 add_custom_command(
         TARGET 15 POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy
-        ${CMAKE_SOURCE_DIR}/OpenSans-Regular.ttf
-        ${CMAKE_CURRENT_BINARY_DIR}/OpenSans-Regular.ttf)
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/resources/
+        ${CMAKE_CURRENT_BINARY_DIR}/resources/)
