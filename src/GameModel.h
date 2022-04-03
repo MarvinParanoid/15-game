@@ -14,9 +14,9 @@ class GameModel {
     enum class Direction { Left, Right, Up, Down };
 
   protected:
-    std::vector<uint32_t> myElements;
-    int32_t myEmptyIndex;
-    bool myIsSolved;
+    std::vector<uint32_t> _elements;
+    int32_t _emptyIndex;
+    bool _isSolved;
 
   public:
     GameModel();
@@ -24,8 +24,8 @@ class GameModel {
     bool Check();
     void Move(Direction direction);
     void Reset();
-    const std::vector<uint32_t> &Elements() const { return myElements; }
-    bool IsSolved() const { return myIsSolved; }
+    const std::vector<uint32_t> &Elements() const { return _elements; }
+    bool IsSolved() const { return _isSolved; }
 };
 
 #endif // GAMEMODEL_H

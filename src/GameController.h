@@ -4,11 +4,11 @@
 #include "GameRender.h"
 
 class GameController {
-    GameModel &myGame;
-    GameRender &myRender;
+    GameModel &_game;
+    GameRender &_render;
 
   public:
-    GameController(GameModel &game, GameRender &render) : myGame(game), myRender(render) {}
+    GameController(GameModel &game, GameRender &render) : _game(game), _render(render) {}
     void Run();
 };
 

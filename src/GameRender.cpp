@@ -2,26 +2,26 @@
 #include "AssetsManager.h"
 #include <iostream>
 
-GameRender::GameRender(GameModel &game) : myGame(game) {
-    myFont = AssetsManager::Instance().GetFont("MainFont");
+GameRender::GameRender(GameModel &game) : _game(game) {
+    _font = AssetsManager::Instance().GetFont("MainFont");
     Init();
 }
 
 bool GameRender::Init() {
     setPosition(50.f, 50.f);
-    myWindow.create(sf::VideoMode(600, 600), "15");
-    myWindow.setFramerateLimit(60);
-    myText = sf::Text("F2 - New Game / Esc - Exit / Arrow Keys - Move Tile", myFont, 18);
-    myText.setFillColor(sf::Color::Cyan);
-    myText.setPosition(5.f, 5.f);
+    _window.create(sf::VideoMode(600, 600), "15");
+    _window.setFramerateLimit(60);
+    _text = sf::Text("F2 - New Game / Esc - Exit / Arrow Keys - Move Tile", _font, 18);
+    _text.setFillColor(sf::Color::Cyan);
+    _text.setPosition(5.f, 5.f);
     return true;
 }
 
 void GameRender::Render() {
-    myWindow.clear();
-    myWindow.draw(*this);
-    myWindow.draw(myText);
-    myWindow.display();
+    _window.clear();
+    _window.draw(*this);
+    _window.draw(_text);
+    _window.display();
 }
 
 void GameRender::draw(sf::RenderTarget &target, sf::RenderStates states) const {
@@ -39,14 +39,14 @@ void GameRender::draw(sf::RenderTarget &target, sf::RenderStates states) const {
     shape.setOutlineColor(color);
     shape.setFillColor(sf::Color::Transparent);
 
-    sf::Text text("", myFont, 50);
+    sf::Text text("", _font, 50);
 
-    auto &elements = myGame.Elements();
+    auto &elements = _game.Elements();
     for (uint32_t i = 0; i < GameModel::ARRAY_SIZE; i++) {
         shape.setOutlineColor(color);
         text.setFillColor(color);
         text.setString(std::to_string(elements[i]));
-        if (myGame.IsSolved()) {
+        if (_game.IsSolved()) {
             shape.setOutlineColor(sf::Color::Cyan);
             text.setFillColor(sf::Color::Cyan);
         } else if (elements[i] == i + 1) {

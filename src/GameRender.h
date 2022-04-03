@@ -5,14 +5,14 @@
 #include <SFML/Graphics.hpp>
 
 class GameRender : public sf::Drawable, public sf::Transformable {
-    GameModel &myGame;
-    sf::RenderWindow myWindow;
-    sf::Font myFont;
-    sf::Text myText;
+    GameModel &_game;
+    sf::RenderWindow _window;
+    sf::Font _font;
+    sf::Text _text;
 
   public:
     explicit GameRender(GameModel &game);
-    sf::RenderWindow &window() { return myWindow; };
+    sf::RenderWindow &window() { return _window; };
     bool Init();
     void Render();
 
