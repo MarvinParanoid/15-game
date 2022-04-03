@@ -11,13 +11,13 @@ void GameController::run() {
                 if (event.key.code == sf::Keyboard::Escape) {
                     _render.window().close();
                 } else if (event.key.code == sf::Keyboard::Left) {
-                    _game.move(GameModel::Direction::Left);
+                    _game.move(Direction::Left);
                 } else if (event.key.code == sf::Keyboard::Right) {
-                    _game.move(GameModel::Direction::Right);
+                    _game.move(Direction::Right);
                 } else if (event.key.code == sf::Keyboard::Up) {
-                    _game.move(GameModel::Direction::Up);
+                    _game.move(Direction::Up);
                 } else if (event.key.code == sf::Keyboard::Down) {
-                    _game.move(GameModel::Direction::Down);
+                    _game.move(Direction::Down);
                 } else if (event.key.code == sf::Keyboard::F2) {
                     _game.reset();
                 }

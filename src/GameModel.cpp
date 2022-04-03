@@ -46,6 +46,6 @@ void GameModel::move(Direction direction) {
 void GameModel::reset() {
     init();
     for (uint32_t i = 0; i < 100; i++) {
-        move((GameModel::Direction)(rand() % 4));
+        move((Direction)(rand() % 4));
     }
 }
