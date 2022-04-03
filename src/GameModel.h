@@ -11,6 +11,7 @@ class GameModel {
     static constexpr uint32_t FIELD_SIZE = 500;
     static constexpr uint32_t CELL_SIZE = 120;
     static constexpr uint32_t HALF_CELL_SIZE = 60;
+    static constexpr uint32_t SCREEN_SIZE = 600;
     enum class Direction { Left, Right, Up, Down };
 
   protected:
@@ -20,12 +21,12 @@ class GameModel {
 
   public:
     GameModel();
-    void Init();
-    bool Check();
-    void Move(Direction direction);
-    void Reset();
-    const std::vector<uint32_t> &Elements() const { return _elements; }
-    bool IsSolved() const { return _isSolved; }
+    void init();
+    bool check();
+    void move(Direction direction);
+    void reset();
+    const std::vector<uint32_t> &elements() const { return _elements; }
+    bool isSolved() const { return _isSolved; }
 };
 
 #endif // GAMEMODEL_H

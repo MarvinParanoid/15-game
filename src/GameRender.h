@@ -13,8 +13,8 @@ class GameRender : public sf::Drawable, public sf::Transformable {
   public:
     explicit GameRender(GameModel &game);
     sf::RenderWindow &window() { return _window; };
-    bool Init();
-    void Render();
+    bool init();
+    void render();
 
   public:
     void draw(sf::RenderTarget &target, sf::RenderStates states) const override;

@@ -9,7 +9,7 @@ class GameController {
 
   public:
     GameController(GameModel &game, GameRender &render) : _game(game), _render(render) {}
-    void Run();
+    void run();
 };
 
 #endif // GAMECONTROLLER_H

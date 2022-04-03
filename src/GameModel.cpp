@@ -1,9 +1,9 @@
 #include "GameModel.h"
 #include <algorithm>
 
-GameModel::GameModel() : _elements(ARRAY_SIZE, 0) { Init(); }
+GameModel::GameModel() : _elements(ARRAY_SIZE, 0) { init(); }
 
-void GameModel::Init() {
+void GameModel::init() {
     for (uint32_t i = 0; i < ARRAY_SIZE - 1; i++) {
         _elements[i] = i + 1;
     }
@@ -12,7 +12,7 @@ void GameModel::Init() {
     _isSolved = true;
 }
 
-bool GameModel::Check() {
+bool GameModel::check() {
     for (uint32_t i = 0; i < ARRAY_SIZE; i++) {
         if (_elements[i] > 0 && _elements[i] != i + 1) {
             return false;
@@ -21,7 +21,7 @@ bool GameModel::Check() {
     return true;
 }
 
-void GameModel::Move(Direction direction) {
+void GameModel::move(Direction direction) {
     uint32_t col = _emptyIndex % SIZE;
     uint32_t row = _emptyIndex / SIZE;
 
@@ -40,12 +40,12 @@ void GameModel::Move(Direction direction) {
         std::swap(_elements[_emptyIndex], _elements[move_index]);
         _emptyIndex = move_index;
     }
-    _isSolved = Check();
+    _isSolved = check();
 }
 
-void GameModel::Reset() {
-    Init();
+void GameModel::reset() {
+    init();
     for (uint32_t i = 0; i < 100; i++) {
-        Move((GameModel::Direction)(rand() % 4));
+        move((GameModel::Direction)(rand() % 4));
     }
 }

@@ -1,6 +1,6 @@
 #include "GameController.h"
 
-void GameController::Run() {
+void GameController::run() {
     sf::Event event;
     while (_render.window().isOpen()) {
         while (_render.window().pollEvent(event)) {
@@ -11,18 +11,18 @@ void GameController::Run() {
                 if (event.key.code == sf::Keyboard::Escape) {
                     _render.window().close();
                 } else if (event.key.code == sf::Keyboard::Left) {
-                    _game.Move(GameModel::Direction::Left);
+                    _game.move(GameModel::Direction::Left);
                 } else if (event.key.code == sf::Keyboard::Right) {
-                    _game.Move(GameModel::Direction::Right);
+                    _game.move(GameModel::Direction::Right);
                 } else if (event.key.code == sf::Keyboard::Up) {
-                    _game.Move(GameModel::Direction::Up);
+                    _game.move(GameModel::Direction::Up);
                 } else if (event.key.code == sf::Keyboard::Down) {
-                    _game.Move(GameModel::Direction::Down);
+                    _game.move(GameModel::Direction::Down);
                 } else if (event.key.code == sf::Keyboard::F2) {
-                    _game.Reset();
+                    _game.reset();
                 }
             }
         }
-        _render.Render();
+        _render.render();
     }
 }

@@ -8,12 +8,12 @@ class AssetsManager {
   public:
     AssetsManager(const AssetsManager &) = delete;
     AssetsManager &operator=(const AssetsManager &) = delete;
-    static AssetsManager &Instance() {
+    static AssetsManager &instance() {
         static AssetsManager instance;
         return instance;
     }
-    void LoadFont(const std::string &name, const std::string &filename);
-    sf::Font &GetFont(const std::string &name);
+    void loadFont(const std::string &name, const std::string &filename);
+    sf::Font &getFont(const std::string &name);
 
   private:
     AssetsManager() = default;

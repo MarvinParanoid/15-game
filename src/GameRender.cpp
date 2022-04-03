@@ -3,21 +3,21 @@
 #include <iostream>
 
 GameRender::GameRender(GameModel &game) : _game(game) {
-    _font = AssetsManager::Instance().GetFont("MainFont");
-    Init();
+    _font = AssetsManager::instance().getFont("MainFont");
+    init();
 }
 
-bool GameRender::Init() {
+bool GameRender::init() {
     setPosition(50.f, 50.f);
-    _window.create(sf::VideoMode(600, 600), "15");
+    _window.create(sf::VideoMode(GameModel::SCREEN_SIZE, GameModel::SCREEN_SIZE), "15");
     _window.setFramerateLimit(60);
-    _text = sf::Text("F2 - New Game / Esc - Exit / Arrow Keys - Move Tile", _font, 18);
+    _text = sf::Text("F2 - New Game / Esc - Exit / Arrow Keys - move Tile", _font, 18);
     _text.setFillColor(sf::Color::Cyan);
     _text.setPosition(5.f, 5.f);
     return true;
 }
 
-void GameRender::Render() {
+void GameRender::render() {
     _window.clear();
     _window.draw(*this);
     _window.draw(_text);
@@ -41,12 +41,12 @@ void GameRender::draw(sf::RenderTarget &target, sf::RenderStates states) const {
 
     sf::Text text("", _font, 50);
 
-    auto &elements = _game.Elements();
+    auto &elements = _game.elements();
     for (uint32_t i = 0; i < GameModel::ARRAY_SIZE; i++) {
         shape.setOutlineColor(color);
         text.setFillColor(color);
         text.setString(std::to_string(elements[i]));
-        if (_game.IsSolved()) {
+        if (_game.isSolved()) {
             shape.setOutlineColor(sf::Color::Cyan);
             text.setFillColor(sf::Color::Cyan);
         } else if (elements[i] == i + 1) {
